@@ -61,7 +61,7 @@ procedure GhepHinhType1;
 		for i := 1 to 6 do
 			if (AllValue[i] <> MaxVal)
 				then S := S + AllValue[i];
-		if (S = getMaxValue(AllValue)) then write(fOut, MaxVal)
+		if (S = MaxVal) then write(fOut, MaxVal)
 			else write(fOut, 0);
 		close(fOut);
 	end;
