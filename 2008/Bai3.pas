@@ -1,7 +1,7 @@
 uses crt;
 type ArrType = array[-100..100, -100..100] of longint;
 var Arr: ArrType;
-	imax, jmax, i, j: longint;
+	imax, jmax, WayMax, i, j: longint;
 	fIn, fOut: text;
 	
 procedure initData;
@@ -28,23 +28,30 @@ function getMax(a, b, c, d: longint): longint;
 procedure Calculate;
 	var i, j: longint;
 	begin
-		for i := 1 to imax do
-			for j := 1 to jmax do
+		for j := 1 to jmax do
+			for i := 1 to imax do
 			begin
 				Arr[i,j] := getMax(Arr[i-2, j-1], 
 								Arr[i-1, j-2], 
 								Arr[i+1, j-2], 
 								Arr[i+2, j-1]) + Arr[i,j];
 			end;
+		WayMax := Arr[1, jmax];
+		for i := 1 to imax do
+			if (Arr[i, jmax] > WayMax) then WayMax := Arr[i, jmax];
+		writeln(WayMax);
+	end;
+	
+procedure saveData;
+	begin
+		write(fOut, WayMax);
+		close(fOut);
+		write('Save successful! Output data have just saved in D:\PascalAssetFile\qm.ou');
 	end;
 
 begin
 	initData;
 	Calculate;
-	for j := 1 to jmax do
-	begin
-		for i := 1 to imax do write(Arr[i,j]:3);
-		writeln
-	end;
+	saveData;
 	readln
 end.
