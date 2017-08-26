@@ -1,7 +1,7 @@
 uses crt;
 type ArrType = array[-100..100, -100..100] of longint;
 var Arr: ArrType;
-	imax, jmax, WayMax, i, j: longint;
+	imax, jmax, WayMax: longint;
 	fIn, fOut: text;
 	
 procedure initData;
@@ -39,14 +39,13 @@ procedure Calculate;
 		WayMax := Arr[1, jmax];
 		for i := 1 to imax do
 			if (Arr[i, jmax] > WayMax) then WayMax := Arr[i, jmax];
-		writeln(WayMax);
 	end;
 	
 procedure saveData;
 	begin
 		write(fOut, WayMax);
 		close(fOut);
-		write('Save successful! Output data have just saved in D:\PascalAssetFile\qm.ou');
+		write('Save successful! Output data have just saved in "D:\PascalAssetFile\qm.ou"');
 	end;
 
 begin
