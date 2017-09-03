@@ -135,7 +135,7 @@ procedure ChoosePS;
 			end;
 		if (RemoveCode <> 0) then
 		begin
-			SortPSGiamDan;43
+			SortPSGiamDan;
 			SetLength(psVal, length(psVal) - RemoveCode);
 			SetLength(tgTu, length(tgTu) - RemoveCode);
 			SetLength(tgMau, length(tgMau) - RemoveCode);
